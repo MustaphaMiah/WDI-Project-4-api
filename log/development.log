@@ -27468,3 +27468,596 @@ Processing by TeamsController#index as HTML
 Completed 200 OK in 36ms (Views: 20.6ms | ActiveRecord: 4.3ms)
 
 
+Started POST "/login" for 127.0.0.1 at 2017-02-24 12:34:59 +0000
+Processing by AuthenticationsController#login as HTML
+  Parameters: {"email"=>"choppa@molloy.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"choppa@molloy.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "choppa@molloy.com"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mRequest Load (0.7ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (24.35ms)
+Completed 200 OK in 120ms (Views: 25.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2017-02-24 12:34:59 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+Started GET "/teams" for 127.0.0.1 at 2017-02-24 12:34:59 +0000
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (7.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (2.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mTeam Load (3.7ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+[active_model_serializers]   [1m[36mRequest Load (4.9ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mRequest Load (4.7ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+[active_model_serializers]   [1m[36mRequest Load (3.0ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (24.84ms)
+  [1m[36mRequest Load (2.0ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 2]]
+Completed 200 OK in 35ms (Views: 16.6ms | ActiveRecord: 12.8ms)
+
+
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+Started GET "/users/5" for 127.0.0.1 at 2017-02-24 12:34:59 +0000
+[active_model_serializers]   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by UsersController#show as HTML
+[active_model_serializers]   [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Parameters: {"id"=>"5"}
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (24.87ms)
+Completed 200 OK in 61ms (Views: 25.1ms | ActiveRecord: 22.3ms)
+
+
+[active_model_serializers]   [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (9.89ms)
+Completed 200 OK in 23ms (Views: 9.8ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-02-24 12:35:00 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   [1m[36mTeam Load (2.6ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers]   [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers]   [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 6]]
+[active_model_serializers]   [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 6]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 6]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 2]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (127.09ms)
+Completed 200 OK in 137ms (Views: 120.4ms | ActiveRecord: 14.2ms)
+
+
+Started GET "/teams" for 127.0.0.1 at 2017-02-24 12:35:01 +0000
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+  [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 2]]
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (21.6ms)
+Completed 200 OK in 36ms (Views: 21.5ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/teams" for 127.0.0.1 at 2017-02-24 12:35:07 +0000
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 2]]
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (23.49ms)
+Completed 200 OK in 33ms (Views: 23.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2017-02-24 12:35:26 +0000
+Started GET "/teams" for 127.0.0.1 at 2017-02-24 12:35:26 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTeam Load (12.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+[active_model_serializers]   [1m[36mTeam Load (3.0ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mRequest Load (5.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+  [1m[36mRequest Load (0.8ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 2]]
+[active_model_serializers]   [1m[36mRequest Load (10.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mRequest Load (4.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+[active_model_serializers]   [1m[36mRequest Load (8.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (36.49ms)
+[active_model_serializers]   [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 48ms (Views: 20.9ms | ActiveRecord: 24.2ms)
+
+
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (29.57ms)
+Completed 200 OK in 69ms (Views: 28.5ms | ActiveRecord: 25.9ms)
+
+
+Started GET "/teams" for 127.0.0.1 at 2017-02-24 12:35:26 +0000
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 2]]
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.98ms)
+Completed 200 OK in 32ms (Views: 19.7ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-02-24 14:15:15 +0000
+Processing by AuthenticationsController#login as HTML
+  Parameters: {"email"=>"musty@musty.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"musty@musty.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (19.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "musty@musty.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (3.79ms)
+Completed 401 Unauthorized in 130ms (Views: 10.4ms | ActiveRecord: 19.9ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-02-24 14:15:21 +0000
+Processing by AuthenticationsController#login as HTML
+  Parameters: {"email"=>"musty@musty.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"musty@musty.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "musty@musty.com"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (3.7ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mRequest Load (2.7ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (59.7ms)
+Completed 200 OK in 164ms (Views: 52.1ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-02-24 14:15:21 +0000
+Started GET "/teams" for 127.0.0.1 at 2017-02-24 14:15:21 +0000
+Processing by UsersController#show as HTML
+Processing by TeamsController#index as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (11.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (4.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mUser Load (12.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRequest Load (10.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 2]]
+[active_model_serializers]   [1m[36mTeam Load (3.7ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mRequest Load (3.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+[active_model_serializers]   [1m[36mRequest Load (6.0ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (11.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (4.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (2.9ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (34.85ms)
+[active_model_serializers]   [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+Completed 200 OK in 89ms (Views: 15.1ms | ActiveRecord: 40.7ms)
+
+
+[active_model_serializers]   [1m[36mTeam Load (0.8ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (59.75ms)
+Completed 200 OK in 94ms (Views: 43.2ms | ActiveRecord: 44.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2017-02-24 14:15:22 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (20.5ms)
+Completed 200 OK in 26ms (Views: 19.9ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/teams/1" for 127.0.0.1 at 2017-02-24 14:15:38 +0000
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (1.1ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.7ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered TeamSerializer with ActiveModelSerializers::Adapter::Attributes (13.09ms)
+Completed 200 OK in 39ms (Views: 16.3ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2017-02-24 14:15:57 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mRequest Load (3.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers]   [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers]   [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers]   [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 6]]
+[active_model_serializers]   [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 6]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 6]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 2]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (145.36ms)
+Completed 200 OK in 152ms (Views: 137.1ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/teams" for 127.0.0.1 at 2017-02-24 14:16:24 +0000
+Processing by TeamsController#index as HTML
+Started GET "/users/2" for 127.0.0.1 at 2017-02-24 14:16:24 +0000
+  [1m[36mUser Load (4.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTeam Load (3.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mUser Load (9.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRequest Load (1.7ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 2]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mRequest Load (14.1ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+[active_model_serializers]   [1m[36mTeam Load (0.9ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (3.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (2.7ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.6ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (20.99ms)
+Completed 200 OK in 94ms (Views: 19.8ms | ActiveRecord: 30.4ms)
+
+
+[active_model_serializers]   [1m[36mRequest Load (1.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (44.48ms)
+Completed 200 OK in 68ms (Views: 42.4ms | ActiveRecord: 19.5ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2017-02-24 14:16:27 +0000
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.5ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (1.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers] Rendered TeamSerializer with ActiveModelSerializers::Adapter::Attributes (15.34ms)
+Completed 200 OK in 22ms (Views: 14.1ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2017-02-24 14:16:39 +0000
+Processing by RequestsController#create as HTML
+  Parameters: {"team_id"=>"2", "request"=>{"team_id"=>"2"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (16.2ms)[0m  [1m[32mINSERT INTO "requests" ("user_id", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["team_id", 2], ["created_at", 2017-02-24 14:16:39 UTC], ["updated_at", 2017-02-24 14:16:39 UTC]]
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (3.2ms)[0m  [1m[33mUPDATE "teams" SET "status" = $1, "updated_at" = $2 WHERE "teams"."id" = $3[0m  [["status", "finished"], ["updated_at", 2017-02-24 14:16:39 UTC], ["id", 2]]
+  [1m[35m (4.7ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered RequestSerializer with ActiveModelSerializers::Adapter::Attributes (8.21ms)
+Completed 201 Created in 75ms (Views: 11.4ms | ActiveRecord: 27.0ms)
+
+
+Started GET "/teams/2" for 127.0.0.1 at 2017-02-24 14:16:39 +0000
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered TeamSerializer with ActiveModelSerializers::Adapter::Attributes (11.45ms)
+Completed 200 OK in 16ms (Views: 11.5ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/teams" for 127.0.0.1 at 2017-02-24 14:16:53 +0000
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.55ms)
+Completed 200 OK in 15ms (Views: 8.8ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/teams/3" for 127.0.0.1 at 2017-02-24 14:17:03 +0000
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+[active_model_serializers] Rendered TeamSerializer with ActiveModelSerializers::Adapter::Attributes (8.73ms)
+Completed 200 OK in 14ms (Views: 8.7ms | ActiveRecord: 2.4ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2017-02-24 14:17:13 +0000
+Processing by RequestsController#create as HTML
+  Parameters: {"team_id"=>"3", "request"=>{"team_id"=>"3"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (3.5ms)[0m  [1m[32mINSERT INTO "requests" ("user_id", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 1], ["team_id", 3], ["created_at", 2017-02-24 14:17:13 UTC], ["updated_at", 2017-02-24 14:17:13 UTC]]
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers] Rendered RequestSerializer with ActiveModelSerializers::Adapter::Attributes (3.62ms)
+Completed 201 Created in 24ms (Views: 4.4ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/teams/3" for 127.0.0.1 at 2017-02-24 14:17:13 +0000
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered TeamSerializer with ActiveModelSerializers::Adapter::Attributes (6.11ms)
+Completed 200 OK in 9ms (Views: 6.2ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/teams" for 127.0.0.1 at 2017-02-24 14:17:40 +0000
+Processing by TeamsController#create as HTML
+  Parameters: {"team"=>{"name"=>"GA warriors", "vacant_spots"=>30}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.5ms)[0m  [1m[32mINSERT INTO "teams" ("name", "vacant_spots", "status", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "GA warriors"], ["vacant_spots", 30], ["status", "active"], ["user_id", 1], ["created_at", 2017-02-24 14:17:40 UTC], ["updated_at", 2017-02-24 14:17:40 UTC]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 4]]
+[active_model_serializers] Rendered TeamSerializer with ActiveModelSerializers::Adapter::Attributes (4.97ms)
+Completed 201 Created in 21ms (Views: 6.2ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/teams" for 127.0.0.1 at 2017-02-24 14:17:40 +0000
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.06ms)
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/teams" for 127.0.0.1 at 2017-02-24 14:17:48 +0000
+Started GET "/users/1" for 127.0.0.1 at 2017-02-24 14:17:48 +0000
+Processing by TeamsController#index as HTML
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.9ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.14ms)
+[active_model_serializers]   [1m[36mTeam Load (1.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+Completed 200 OK in 15ms (Views: 1.3ms | ActiveRecord: 2.4ms)
+
+
+[active_model_serializers]   [1m[36mRequest Load (0.7ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 4]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (42.21ms)
+Completed 200 OK in 51ms (Views: 39.8ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2017-02-24 14:18:01 +0000
+Processing by AuthenticationsController#login as HTML
+  Parameters: {"email"=>"choppa@molloy.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"choppa@molloy.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "choppa@molloy.com"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (8.66ms)
+Completed 200 OK in 86ms (Views: 8.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/teams" for 127.0.0.1 at 2017-02-24 14:18:01 +0000
+Processing by TeamsController#index as HTML
+Started GET "/users/5" for 127.0.0.1 at 2017-02-24 14:18:01 +0000
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Processing by UsersController#show as HTML
+  [1m[36mTeam Load (1.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  Parameters: {"id"=>"5"}
+  [1m[36mRequest Load (1.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mRequest Load (1.0ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mRequest Load (6.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 4]]
+[active_model_serializers]   [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (23.08ms)
+[active_model_serializers]   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+Completed 200 OK in 35ms (Views: 23.2ms | ActiveRecord: 7.2ms)
+
+
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/users/5" for 127.0.0.1 at 2017-02-24 14:18:02 +0000
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (33.49ms)
+Completed 200 OK in 57ms (Views: 26.8ms | ActiveRecord: 18.7ms)
+
+
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (6.88ms)
+Completed 200 OK in 12ms (Views: 6.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/teams" for 127.0.0.1 at 2017-02-24 14:18:06 +0000
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.4ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 4]]
+[active_model_serializers]   [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.89ms)
+Completed 200 OK in 39ms (Views: 24.4ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/teams/4" for 127.0.0.1 at 2017-02-24 14:18:11 +0000
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.2ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 4]]
+[active_model_serializers] Rendered TeamSerializer with ActiveModelSerializers::Adapter::Attributes (7.41ms)
+Completed 200 OK in 14ms (Views: 9.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/requests" for 127.0.0.1 at 2017-02-24 14:18:16 +0000
+Processing by RequestsController#create as HTML
+  Parameters: {"team_id"=>"4", "request"=>{"team_id"=>"4"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "requests" ("user_id", "team_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["user_id", 5], ["team_id", 4], ["created_at", 2017-02-24 14:18:16 UTC], ["updated_at", 2017-02-24 14:18:16 UTC]]
+  [1m[36mRequest Load (0.2ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 4]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered RequestSerializer with ActiveModelSerializers::Adapter::Attributes (2.88ms)
+Completed 201 Created in 30ms (Views: 3.3ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/teams/4" for 127.0.0.1 at 2017-02-24 14:18:16 +0000
+Processing by TeamsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 4]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+[active_model_serializers] Rendered TeamSerializer with ActiveModelSerializers::Adapter::Attributes (9.07ms)
+Completed 200 OK in 14ms (Views: 9.1ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2017-02-24 14:18:23 +0000
+Started GET "/teams" for 127.0.0.1 at 2017-02-24 14:18:23 +0000
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+Processing by TeamsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mTeam Load (2.7ms)[0m  [1m[34mSELECT "teams".* FROM "teams"[0m
+[active_model_serializers]   [1m[36mTeam Load (0.3ms)[0m  [1m[34mSELECT "teams".* FROM "teams" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mRequest Load (4.0ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 1]]
+[active_model_serializers]   [1m[36mRequest Load (4.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."user_id" = $1[0m  [["user_id", 5]]
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 3]]
+[active_model_serializers]   [1m[36mTeam Load (1.8ms)[0m  [1m[34mSELECT  "teams".* FROM "teams" WHERE "teams"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mRequest Load (5.6ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."team_id" = $1[0m  [["team_id", 4]]
+[active_model_serializers]   [1m[36mRequest Load (3.0ms)[0m  [1m[34mSELECT "requests".* FROM "requests" INNER JOIN "teams" ON "requests"."team_id" = "teams"."id" WHERE "teams"."user_id" = $1[0m  [["user_id", 5]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (27.47ms)
+[active_model_serializers]   [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 33ms (Views: 18.5ms | ActiveRecord: 11.7ms)
+
+
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.95ms)
+Completed 200 OK in 45ms (Views: 14.4ms | ActiveRecord: 16.1ms)
+
+
